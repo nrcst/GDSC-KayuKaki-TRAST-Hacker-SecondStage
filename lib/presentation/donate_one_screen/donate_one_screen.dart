@@ -376,9 +376,9 @@ class DonateOneScreen extends GetWidget<DonateOneController> {
         return AppRoutes.dashboardPage;
       case BottomBarEnum.Favorite:
         return AppRoutes.donatePage;
-      case BottomBarEnum.User:
+      case BottomBarEnum.Notification:
         return "/";
-      case BottomBarEnum.tf:
+      case BottomBarEnum.Cart:
         return AppRoutes.notificationPage;
       default:
         return "/";

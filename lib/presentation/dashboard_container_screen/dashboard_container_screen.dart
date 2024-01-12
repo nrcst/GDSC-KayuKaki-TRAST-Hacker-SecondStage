@@ -1,3 +1,6 @@
+import 'package:trast/presentation/cart_screen/cart_screen.dart';
+import 'package:trast/presentation/search_screen/search_screen.dart';
+
 import 'controller/dashboard_container_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:trast/core/app_export.dart';
@@ -36,10 +39,12 @@ class DashboardContainerScreen extends GetWidget<DashboardContainerController> {
         return AppRoutes.dashboardPage;
       case BottomBarEnum.Favorite:
         return AppRoutes.donatePage;
-      case BottomBarEnum.User:
-        return "/";
-      case BottomBarEnum.tf:
+      case BottomBarEnum.Search:
+        return AppRoutes.searchScreen;
+      case BottomBarEnum.Notification:
         return AppRoutes.notificationPage;
+      case BottomBarEnum.Cart:
+        return AppRoutes.cartScreen;
       default:
         return "/";
     }
@@ -52,8 +57,12 @@ class DashboardContainerScreen extends GetWidget<DashboardContainerController> {
         return DashboardPage();
       case AppRoutes.donatePage:
         return DonatePage();
+      case AppRoutes.searchScreen:
+        return SearchScreen();
       case AppRoutes.notificationPage:
         return NotificationPage();
+      case AppRoutes.cartScreen:
+        return CartScreen();
       default:
         return DefaultWidget();
     }

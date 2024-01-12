@@ -158,6 +158,12 @@ class CustomTextStyles {
         color: appTheme.redA200,
         fontWeight: FontWeight.w700,
       );
+
+  static get titleSmallInterRedA200 =>
+      theme.textTheme.titleSmall!.inter.copyWith(
+        color: appTheme.redA200,
+        fontWeight: FontWeight.w700,
+      );
   static get titleMediumInterfffe554a =>
       theme.textTheme.titleMedium!.inter.copyWith(
         color: Color(0XFFFE554A),

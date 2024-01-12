@@ -116,47 +116,49 @@ class RegisterScreen extends GetWidget<RegisterController> {
                                 SizedBox(height: 19.v),
                                 Align(
                                     alignment: Alignment.center,
-                                    child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          CustomIconButton(
-                                              height: 46.adaptSize,
-                                              width: 46.adaptSize,
-                                              padding: EdgeInsets.all(2.h),
-                                              child: CustomImageView(
-                                                  imagePath: ImageConstant
-                                                      .imgFacebook)),
-                                          Padding(
-                                              padding: EdgeInsets.only(
-                                                  left: 6.h,
-                                                  top: 4.v,
-                                                  bottom: 3.v),
-                                              child: CustomIconButton(
-                                                  height: 39.adaptSize,
-                                                  width: 39.adaptSize,
-                                                  padding:
-                                                      EdgeInsets.all(7.h),
-                                                  decoration:
-                                                      IconButtonStyleHelper
-                                                          .fillBlue,
-                                                  child: CustomImageView(
-                                                      imagePath: ImageConstant
-                                                          .imgTrash))),
-                                          Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 7.h),
-                                              child: CustomIconButton(
-                                                  height: 46.adaptSize,
-                                                  width: 46.adaptSize,
-                                                  child: CustomImageView(
-                                                      imagePath: ImageConstant
-                                                          .imgImage146x46)))
-                                        ])),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      // CustomIconButton(
+                                      //   height: 46.adaptSize,
+                                      //   width: 46.adaptSize,
+                                      //   padding: EdgeInsets.all(2.h),
+                                      //   child: CustomImageView(
+                                      //     imagePath: ImageConstant.imgFacebook,
+                                      //   ),
+                                      // ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 6.h,
+                                          top: 4.v,
+                                          bottom: 3.v,
+                                        ),
+                                        child: CustomIconButton(
+                                            height: 64.adaptSize,
+                                            width: 64.adaptSize,
+                                            padding: EdgeInsets.all(7.h),
+                                            decoration: IconButtonStyleHelper
+                                                .fillGrayTL10,
+                                            child: Image.network(
+                                                'http://pngimg.com/uploads/google/google_PNG19635.png',
+                                                fit: BoxFit.cover)),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 7.h),
+                                        // child: CustomIconButton(
+                                        //   height: 46.adaptSize,
+                                        //   width: 46.adaptSize,
+                                        //   child: CustomImageView(
+                                        //     imagePath: ImageConstant.imgImage1,
+                                        //   ),
+                                        // ),
+                                      ),
+                                    ],
+                                  ),),
                                 SizedBox(height: 48.v),
                                 _buildCreateAccountButton(),
                                 SizedBox(height: 14.v),
-                                _buildLoginText()
+                                _buildLoginText(context)
                               ])),
                     )))));
   }
@@ -234,20 +236,35 @@ class RegisterScreen extends GetWidget<RegisterController> {
   }
 
   /// Section Widget
-  Widget _buildLoginText() {
+  Widget _buildLoginText(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 89.h, vertical: 15.v),
-        decoration: AppDecoration.outlineDeepOrange
-            .copyWith(borderRadius: BorderRadiusStyle.roundedBorder18),
+      padding: EdgeInsets.symmetric(horizontal: 89.h, vertical: 15.v),
+      decoration: AppDecoration.outlineDeepOrange
+          .copyWith(borderRadius: BorderRadiusStyle.roundedBorder18),
+      child: TextButton(
+        onPressed: () {
+          Navigator.pushNamed(context, AppRoutes.loginScreen);},
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusStyle.roundedBorder18,
+          ),
+        ),
         child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 3.v),
-              Text("msg_login_to_my_account".tr,
-                  style: CustomTextStyles.titleMediumInterRedA200)
-            ]));
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 3.v),
+            Text(
+              "msg_login_to_my_account".tr,
+              style: CustomTextStyles.titleMediumInterRedA200,
+            ),
+          ],
+        ),
+      ),
+    );
   }
+
 
   /// Navigates to the previous screen.
   onTapBtnArrowLeft() {

@@ -53,7 +53,7 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                       margin: EdgeInsets.symmetric(horizontal: 17.h),
                       child: Text(
                         "msg_welcome_to_trast".tr,
-                        maxLines: 2,
+                        maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         textAlign: TextAlign.center,
                         style: CustomTextStyles.headlineSmallOnSecondaryContainer,
@@ -103,8 +103,8 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                             bottom: 3.v,
                           ),
                           child: CustomIconButton(
-                            height: 39.adaptSize,
-                            width: 39.adaptSize,
+                            height: 64.adaptSize,
+                            width: 64.adaptSize,
                             padding: EdgeInsets.all(7.h),
                             decoration: IconButtonStyleHelper.fillGrayTL10,
                             child: Image.network(
@@ -125,9 +125,9 @@ class WelcomeScreen extends GetWidget<WelcomeController> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 18.v),
+                    SizedBox(height: 5.v),
                     _buildButtonColumn(context),
-                    SizedBox(height: 7.v),
+                    SizedBox(height: 5.v),
                   ],
                 ),
               ),

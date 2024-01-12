@@ -19,21 +19,12 @@ class NotificationPage extends StatelessWidget {
       child: Scaffold(
         extendBody: true,
         extendBodyBehindAppBar: true,
-        body: Container(
-          width: SizeUtils.width,
-          height: SizeUtils.height,
-          decoration: BoxDecoration(
-            color: appTheme.gray5001,
-            image: DecorationImage(
-              image: AssetImage(
-                ImageConstant.imgSplash,
-              ),
-              fit: BoxFit.cover,
-            ),
-          ),
+        body: SingleChildScrollView(
           child: Container(
-            width: double.maxFinite,
-            decoration: AppDecoration.fillGray.copyWith(
+            width: SizeUtils.width,
+            height: SizeUtils.height,
+            decoration: BoxDecoration(
+              color: appTheme.gray5001,
               image: DecorationImage(
                 image: AssetImage(
                   ImageConstant.imgSplash,
@@ -41,226 +32,237 @@ class NotificationPage extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 34.v),
-                Padding(
-                  padding: EdgeInsets.only(left: 21.h),
-                  child: CustomIconButton(
-                    height: 40.adaptSize,
-                    width: 40.adaptSize,
-                    padding: EdgeInsets.all(11.h),
-                    child: CustomImageView(
-                      imagePath: ImageConstant.imgMegaphone,
+            child: SingleChildScrollView(
+              child: Container(
+                width: double.maxFinite,
+                decoration: AppDecoration.fillGray.copyWith(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      ImageConstant.imgSplash,
                     ),
+                    fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(height: 23.v),
-                Padding(
-                  padding: EdgeInsets.only(left: 33.h),
-                  child: Text(
-                    "lbl_notification".tr,
-                    style: theme.textTheme.headlineSmall,
-                  ),
-                ),
-                SizedBox(height: 20.v),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Container(
-                    margin: EdgeInsets.only(left: 25.h),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 8.h,
-                      vertical: 42.v,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 34.v),
+                    Padding(
+                      padding: EdgeInsets.only(left: 21.h),
+                      child: CustomIconButton(
+                        height: 40.adaptSize,
+                        width: 40.adaptSize,
+                        padding: EdgeInsets.all(11.h),
+                        child: CustomImageView(
+                          imagePath: ImageConstant.imgMegaphone,
+                        ),
+                      ),
                     ),
-                    decoration: AppDecoration.outlineErrorContainer.copyWith(
-                      borderRadius: BorderRadiusStyle.roundedBorder18,
+                    SizedBox(height: 23.v),
+                    Padding(
+                      padding: EdgeInsets.only(left: 33.h),
+                      child: Text(
+                        "lbl_notification".tr,
+                        style: theme.textTheme.headlineSmall,
+                      ),
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        _buildOrderStatus(),
-                        SizedBox(height: 23.v),
-                        Opacity(
-                          opacity: 0.3,
-                          child: Container(
-                            height: 1.v,
-                            width: 262.h,
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.errorContainer,
-                            ),
-                          ),
+                    SizedBox(height: 20.v),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Container(
+                        margin: EdgeInsets.only(left: 25.h),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 8.h,
+                          vertical: 42.v,
                         ),
-                        SizedBox(height: 35.v),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              left: 29.h,
-                              right: 9.h,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "msg_your_order_is_on".tr,
-                                  style: theme.textTheme.bodyLarge,
+                        decoration: AppDecoration.outlineErrorContainer.copyWith(
+                          borderRadius: BorderRadiusStyle.roundedBorder18,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            _buildOrderStatus(),
+                            SizedBox(height: 23.v),
+                            Opacity(
+                              opacity: 0.3,
+                              child: Container(
+                                height: 1.v,
+                                width: 262.h,
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.errorContainer,
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(bottom: 5.v),
-                                  child: Text(
-                                    "lbl_34m".tr,
-                                    style: theme.textTheme.bodySmall,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 27.v),
-                        Opacity(
-                          opacity: 0.3,
-                          child: Container(
-                            height: 1.v,
-                            width: 262.h,
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.errorContainer,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 32.v),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                              left: 29.h,
-                              right: 6.h,
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "msg_your_order_has_been2".tr,
-                                  style: theme.textTheme.bodyLarge,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    left: 55.h,
-                                    bottom: 5.v,
-                                  ),
-                                  child: Text(
-                                    "lbl_1h5m".tr,
-                                    style: theme.textTheme.bodySmall,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 24.v),
-                        Opacity(
-                          opacity: 0.3,
-                          child: Container(
-                            height: 1.v,
-                            width: 262.h,
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.errorContainer,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 30.v),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 29.h,
-                            right: 12.h,
-                          ),
-                          child: _buildDonationRequest(
-                            donationRequestText: "msg_your_donation_has".tr,
-                            dText: "lbl_1d".tr,
-                          ),
-                        ),
-                        SizedBox(height: 11.v),
-                        Opacity(
-                          opacity: 0.3,
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              height: 1.v,
-                              width: 262.h,
-                              margin: EdgeInsets.only(left: 29.h),
-                              decoration: BoxDecoration(
-                                color: theme.colorScheme.errorContainer,
                               ),
                             ),
-                          ),
-                        ),
-                        SizedBox(height: 30.v),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 31.h,
-                            right: 12.h,
-                          ),
-                          child: _buildDonationRequest(
-                            donationRequestText: "msg_donation_request".tr,
-                            dText: "lbl_1d".tr,
-                          ),
-                        ),
-                        SizedBox(height: 16.v),
-                        Opacity(
-                          opacity: 0.3,
-                          child: Container(
-                            height: 1.v,
-                            width: 259.h,
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.errorContainer,
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 30.v),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 31.h,
-                            right: 12.h,
-                          ),
-                          child: _buildDonationRequest(
-                            donationRequestText: "msg_your_order_has_been3".tr,
-                            dText: "lbl_2d".tr,
-                          ),
-                        ),
-                        SizedBox(height: 32.v),
-                        Opacity(
-                          opacity: 0.3,
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Container(
-                              height: 1.v,
-                              width: 259.h,
-                              margin: EdgeInsets.only(left: 30.h),
-                              decoration: BoxDecoration(
-                                color: theme.colorScheme.errorContainer,
+                            SizedBox(height: 35.v),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  left: 29.h,
+                                  right: 9.h,
+                                ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "msg_your_order_is_on".tr,
+                                      style: theme.textTheme.bodyLarge,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(bottom: 5.v),
+                                      child: Text(
+                                        "lbl_34m".tr,
+                                        style: theme.textTheme.bodySmall,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
+                            SizedBox(height: 27.v),
+                            Opacity(
+                              opacity: 0.3,
+                              child: Container(
+                                height: 1.v,
+                                width: 262.h,
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.errorContainer,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 32.v),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  left: 29.h,
+                                  right: 6.h,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "msg_your_order_has_been2".tr,
+                                      style: theme.textTheme.bodyLarge,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                        left: 55.h,
+                                        bottom: 5.v,
+                                      ),
+                                      child: Text(
+                                        "lbl_1h5m".tr,
+                                        style: theme.textTheme.bodySmall,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 24.v),
+                            Opacity(
+                              opacity: 0.3,
+                              child: Container(
+                                height: 1.v,
+                                width: 262.h,
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.errorContainer,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 30.v),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: 29.h,
+                                right: 12.h,
+                              ),
+                              child: _buildDonationRequest(
+                                donationRequestText: "msg_your_donation_has".tr,
+                                dText: "lbl_1d".tr,
+                              ),
+                            ),
+                            SizedBox(height: 11.v),
+                            Opacity(
+                              opacity: 0.3,
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Container(
+                                  height: 1.v,
+                                  width: 262.h,
+                                  margin: EdgeInsets.only(left: 29.h),
+                                  decoration: BoxDecoration(
+                                    color: theme.colorScheme.errorContainer,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 30.v),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: 31.h,
+                                right: 12.h,
+                              ),
+                              child: _buildDonationRequest(
+                                donationRequestText: "msg_donation_request".tr,
+                                dText: "lbl_1d".tr,
+                              ),
+                            ),
+                            SizedBox(height: 16.v),
+                            Opacity(
+                              opacity: 0.3,
+                              child: Container(
+                                height: 1.v,
+                                width: 259.h,
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.errorContainer,
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 30.v),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: 31.h,
+                                right: 12.h,
+                              ),
+                              child: _buildDonationRequest(
+                                donationRequestText: "msg_your_order_has_been3".tr,
+                                dText: "lbl_2d".tr,
+                              ),
+                            ),
+                            SizedBox(height: 32.v),
+                            Opacity(
+                              opacity: 0.3,
+                              child: Align(
+                                alignment: Alignment.centerLeft,
+                                child: Container(
+                                  height: 1.v,
+                                  width: 259.h,
+                                  margin: EdgeInsets.only(left: 30.h),
+                                  decoration: BoxDecoration(
+                                    color: theme.colorScheme.errorContainer,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 30.v),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: 29.h,
+                                right: 12.h,
+                              ),
+                              child: _buildDonationRequest(
+                                donationRequestText: "msg_your_order_has_been2".tr,
+                                dText: "lbl_2d".tr,
+                              ),
+                            ),
+                            SizedBox(height: 33.v),
+                          ],
                         ),
-                        SizedBox(height: 30.v),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 29.h,
-                            right: 12.h,
-                          ),
-                          child: _buildDonationRequest(
-                            donationRequestText: "msg_your_order_has_been2".tr,
-                            dText: "lbl_2d".tr,
-                          ),
-                        ),
-                        SizedBox(height: 33.v),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),

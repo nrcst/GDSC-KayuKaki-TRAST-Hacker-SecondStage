@@ -36,16 +36,15 @@ class LoginScreen extends GetWidget<LoginController> {
                                     padding: EdgeInsets.only(left: 1.h),
                                     child: Row(
                                         crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                              padding: EdgeInsets.only(
-                                                  bottom: 26.v),
+                                              padding:
+                                                  EdgeInsets.only(bottom: 26.v),
                                               child: CustomIconButton(
                                                   height: 40.adaptSize,
                                                   width: 40.adaptSize,
-                                                  padding:
-                                                  EdgeInsets.all(13.h),
+                                                  padding: EdgeInsets.all(13.h),
                                                   onTap: () {
                                                     onTapBtnArrowLeft();
                                                   },
@@ -53,8 +52,8 @@ class LoginScreen extends GetWidget<LoginController> {
                                                       imagePath: ImageConstant
                                                           .imgArrowLeft))),
                                           CustomImageView(
-                                              imagePath: ImageConstant
-                                                  .imgArtboard44x2,
+                                              imagePath:
+                                                  ImageConstant.imgArtboard44x2,
                                               height: 46.v,
                                               width: 73.h,
                                               margin: EdgeInsets.only(
@@ -101,7 +100,7 @@ class LoginScreen extends GetWidget<LoginController> {
                                     alignment: Alignment.center,
                                     child: Text("lbl_or".tr,
                                         style:
-                                        CustomTextStyles.bodyLargeInter)),
+                                            CustomTextStyles.bodyLargeInter)),
                                 SizedBox(height: 1.v),
                                 CustomImageView(
                                     imagePath: ImageConstant.imgVector1,
@@ -110,51 +109,51 @@ class LoginScreen extends GetWidget<LoginController> {
                                     alignment: Alignment.center),
                                 SizedBox(height: 19.v),
                                 Align(
-                                    alignment: Alignment.center,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        // CustomIconButton(
+                                  alignment: Alignment.center,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      // CustomIconButton(
+                                      //   height: 46.adaptSize,
+                                      //   width: 46.adaptSize,
+                                      //   padding: EdgeInsets.all(2.h),
+                                      //   child: CustomImageView(
+                                      //     imagePath: ImageConstant.imgFacebook,
+                                      //   ),
+                                      // ),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 6.h,
+                                          top: 4.v,
+                                          bottom: 3.v,
+                                        ),
+                                        child: CustomIconButton(
+                                            height: 64.adaptSize,
+                                            width: 64.adaptSize,
+                                            padding: EdgeInsets.all(7.h),
+                                            decoration: IconButtonStyleHelper
+                                                .fillGrayTL10,
+                                            child: Image.network(
+                                                'http://pngimg.com/uploads/google/google_PNG19635.png',
+                                                fit: BoxFit.cover)),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 7.h),
+                                        // child: CustomIconButton(
                                         //   height: 46.adaptSize,
                                         //   width: 46.adaptSize,
-                                        //   padding: EdgeInsets.all(2.h),
                                         //   child: CustomImageView(
-                                        //     imagePath: ImageConstant.imgFacebook,
+                                        //     imagePath: ImageConstant.imgImage1,
                                         //   ),
                                         // ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                            left: 6.h,
-                                            top: 4.v,
-                                            bottom: 3.v,
-                                          ),
-                                          child: CustomIconButton(
-                                              height: 39.adaptSize,
-                                              width: 39.adaptSize,
-                                              padding: EdgeInsets.all(7.h),
-                                              decoration: IconButtonStyleHelper.fillGrayTL10,
-                                              child: Image.network(
-                                                  'http://pngimg.com/uploads/google/google_PNG19635.png',
-                                                  fit:BoxFit.cover
-                                              )
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding: EdgeInsets.only(left: 7.h),
-                                          // child: CustomIconButton(
-                                          //   height: 46.adaptSize,
-                                          //   width: 46.adaptSize,
-                                          //   child: CustomImageView(
-                                          //     imagePath: ImageConstant.imgImage1,
-                                          //   ),
-                                          // ),
-                                        ),
-                                      ],
-                                    ),),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                                 SizedBox(height: 48.v),
                                 _buildLoginButton(),
                                 SizedBox(height: 14.v),
-                                _buildLoginText()
+                                _buildRegisterText(context)
                               ])),
                     )))));
   }
@@ -175,7 +174,7 @@ class LoginScreen extends GetWidget<LoginController> {
               return null;
             },
             contentPadding:
-            EdgeInsets.symmetric(horizontal: 23.h, vertical: 16.v)));
+                EdgeInsets.symmetric(horizontal: 23.h, vertical: 16.v)));
   }
 
   /// Section Widget
@@ -196,32 +195,49 @@ class LoginScreen extends GetWidget<LoginController> {
             },
             obscureText: true,
             contentPadding:
-            EdgeInsets.symmetric(horizontal: 23.h, vertical: 16.v)));
+                EdgeInsets.symmetric(horizontal: 23.h, vertical: 16.v)));
   }
+
   /// Section Widget
   Widget _buildLoginButton() {
     return CustomElevatedButton(
         height: 57.v,
-        text: "msg_create_an_account".tr,
+        text: "lbl_login".tr,
         buttonStyle: CustomButtonStyles.none,
         decoration: CustomButtonStyles.gradientYellowToPrimaryDecoration,
         buttonTextStyle: CustomTextStyles.titleMediumRobotoOnPrimaryContainer);
   }
 
   /// Section Widget
-  Widget _buildLoginText() {
+  Widget _buildRegisterText(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 89.h, vertical: 15.v),
-        decoration: AppDecoration.outlineDeepOrange
-            .copyWith(borderRadius: BorderRadiusStyle.roundedBorder18),
+      padding: EdgeInsets.symmetric(horizontal: 89.h, vertical: 15.v),
+      decoration: AppDecoration.outlineDeepOrange
+          .copyWith(borderRadius: BorderRadiusStyle.roundedBorder18),
+      child: TextButton(
+        onPressed: () {
+            Navigator.pushNamed(context, AppRoutes.registerScreen);},
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusStyle.roundedBorder18,
+          ),
+        ),
         child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: 3.v),
-              Text("msg_login_to_my_account".tr,
-                  style: CustomTextStyles.titleMediumInterRedA200)
-            ]));
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 3.v),
+            Center(
+              child: Text(
+                "msg_create_an_account".tr,
+                style: CustomTextStyles.titleMediumInterRedA200,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   /// Navigates to the previous screen.

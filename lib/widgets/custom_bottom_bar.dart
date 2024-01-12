@@ -23,14 +23,19 @@ class CustomBottomBar extends StatelessWidget {
       type: BottomBarEnum.Favorite,
     ),
     BottomMenuModel(
+      icon: ImageConstant.imgSearchBlueGray400,
+      activeIcon: ImageConstant.imgSearchBlueGray400,
+      type: BottomBarEnum.Search,
+    ),
+    BottomMenuModel(
       icon: ImageConstant.imgUser,
       activeIcon: ImageConstant.imgUser,
-      type: BottomBarEnum.User,
+      type: BottomBarEnum.Notification,
     ),
     BottomMenuModel(
       icon: ImageConstant.imgCart,
       activeIcon: ImageConstant.imgCart,
-      type: BottomBarEnum.tf,
+      type: BottomBarEnum.Cart,
     )
   ];
 
@@ -87,8 +92,10 @@ class CustomBottomBar extends StatelessWidget {
 enum BottomBarEnum {
   Home,
   Favorite,
-  User,
-  tf,
+
+  Search,
+  Notification,
+  Cart,
 }
 
 class BottomMenuModel {
