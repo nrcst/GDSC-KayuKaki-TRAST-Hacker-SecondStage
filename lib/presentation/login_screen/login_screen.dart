@@ -6,6 +6,7 @@ import 'package:trast/widgets/custom_elevated_button.dart';
 import 'package:trast/widgets/custom_icon_button.dart';
 import 'package:trast/widgets/custom_text_form_field.dart';
 
+
 // ignore_for_file: must_be_immutable
 class LoginScreen extends GetWidget<LoginController> {
   LoginScreen({Key? key}) : super(key: key);
