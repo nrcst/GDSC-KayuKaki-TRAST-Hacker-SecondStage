@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "314080121841",
+    "project_id": "kayukaki-trast",
+    "storage_bucket": "kayukaki-trast.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314080121841:android:96488b0bfa663af8a06a50",
+        "android_client_info": {
+          "package_name": "com.trast.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgbHr4AtNAjb5I6YQtZ7BQ9rhOtUdThG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

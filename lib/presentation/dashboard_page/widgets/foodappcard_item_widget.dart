@@ -24,60 +24,62 @@ class FoodappcardItemWidget extends StatelessWidget {
         borderRadius: BorderRadiusStyle.roundedBorder30,
       ),
       width: 200.h,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Obx(
-            () => CustomImageView(
-              imagePath: foodappcardItemModelObj.foodImage!.value,
-              height: 112.v,
-              width: 170.h,
-              radius: BorderRadius.circular(
-                20.h,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Obx(
+              () => CustomImageView(
+                imagePath: foodappcardItemModelObj.foodImage!.value,
+                height: 112.v,
+                width: 170.h,
+                radius: BorderRadius.circular(
+                  20.h,
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 21.v),
-          Obx(
-            () => Text(
-              foodappcardItemModelObj.foodName!.value,
-              style: theme.textTheme.titleMedium,
+            SizedBox(height: 21.v),
+            Obx(
+              () => Text(
+                foodappcardItemModelObj.foodName!.value,
+                style: theme.textTheme.titleMedium,
+              ),
             ),
-          ),
-          SizedBox(height: 5.v),
-          Obx(
-            () => Text(
-              foodappcardItemModelObj.restaurantName!.value,
-              style: CustomTextStyles.bodySmallDMSansGray80001_1,
+            SizedBox(height: 5.v),
+            Obx(
+              () => Text(
+                foodappcardItemModelObj.restaurantName!.value,
+                style: CustomTextStyles.bodySmallDMSansGray80001_1,
+              ),
             ),
-          ),
-          SizedBox(height: 30.v),
-          Padding(
-            padding: EdgeInsets.only(left: 4.h),
-            child: Row(
-              children: [
-                Obx(
-                  () => CustomImageView(
-                    imagePath: foodappcardItemModelObj.ratingImage!.value,
-                    height: 15.adaptSize,
-                    width: 15.adaptSize,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 4.h),
-                  child: Obx(
-                    () => Text(
-                      foodappcardItemModelObj.ratingText!.value,
-                      style: CustomTextStyles.bodySmallDMSansGray80001_1,
+            SizedBox(height: 30.v),
+            Padding(
+              padding: EdgeInsets.only(left: 4.h),
+              child: Row(
+                children: [
+                  Obx(
+                    () => CustomImageView(
+                      imagePath: foodappcardItemModelObj.ratingImage!.value,
+                      height: 15.adaptSize,
+                      width: 15.adaptSize,
                     ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.only(left: 4.h),
+                    child: Obx(
+                      () => Text(
+                        foodappcardItemModelObj.ratingText!.value,
+                        style: CustomTextStyles.bodySmallDMSansGray80001_1,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(height: 7.v),
-        ],
+            SizedBox(height: 7.v),
+          ],
+        ),
       ),
     );
   }

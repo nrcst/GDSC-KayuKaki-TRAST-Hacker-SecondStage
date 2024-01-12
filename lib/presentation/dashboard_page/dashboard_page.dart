@@ -21,10 +21,10 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: _buildAppBar(),
-        body: Container(
+    return Scaffold(
+      appBar: _buildAppBar(),
+      body: SafeArea(
+        child: Container(
           height: 613.v,
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(vertical: 13.v),
@@ -82,20 +82,21 @@ class DashboardPage extends StatelessWidget {
       title: Column(
         children: [
           Obx(
-            () => AppbarTitleDropdown(
-              margin: EdgeInsets.only(
-                left: 23.h,
-                right: 6.h,
+                () => Container(
+              margin: EdgeInsets.only(left: 12.h, right: 6.h, top: 10.h),
+              width: 200.0, // Adjust the width as needed
+              child: AppbarTitleDropdown(
+                hintText: "lbl_delivery_to".tr,
+                items: controller.dashboardModelObj.value.dropdownItemList!.value,
+                onTap: (value) {
+                  controller.onSelected(value);
+                },
               ),
-              hintText: "lbl_delivery_to".tr,
-              items: controller.dashboardModelObj.value.dropdownItemList!.value,
-              onTap: (value) {
-                controller.onSelected(value);
-              },
             ),
           ),
           SizedBox(height: 4.v),
           AppbarSubtitle(
+            margin: EdgeInsets.only(bottom: 30),
             text: "msg_jl_kayukaki_no".tr,
           ),
         ],

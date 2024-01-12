@@ -40,11 +40,11 @@ class DashboardContainerScreen extends GetWidget<DashboardContainerController> {
       case BottomBarEnum.Favorite:
         return AppRoutes.donatePage;
       case BottomBarEnum.Search:
-        return AppRoutes.searchScreen;
+        return "/";
       case BottomBarEnum.Notification:
         return AppRoutes.notificationPage;
       case BottomBarEnum.Cart:
-        return AppRoutes.cartScreen;
+        return "/";
       default:
         return "/";
     }
